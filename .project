@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>microservices-hub</name>
+	<comment></comment>
+	<projects>
+		<project>eureka-server</project>
+		<project>movie-catalog</project>
+		<project>movie-info</project>
+		<project>user-movie-rating</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>
