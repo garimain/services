@@ -1,0 +1,33 @@
+version: '3'
+
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    environment:
+     MYSQL_ROOT_PASSWORD: admin
+     MYSQL_DATABASE: catalog
+    networks:
+      - spring-cloud-network
+  
+  config-server:
+    container_name: config-server
+    image: myorg/config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - spring-cloud-network
+  eureka-server:
+    container_name: eureka-server
+    image: myorg/eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring-cloud-network
+      
+networks:
+    spring-cloud-network:
+        driver: bridge

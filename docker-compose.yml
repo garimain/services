@@ -1,15 +1,30 @@
 version: '3'
 
-
 services:
-  mysqldb:
-    image: mysql:5.7
-    container_name: mysqldb
+  
+  movie-info-service:
+    container_name: movie-info-service
+    image: myorg/movie-info
     ports:
-      - "3306:3306"
-    environment:
-     MYSQL_ROOT_PASSWORD: admin
-     MYSQL_DATABASE: catalog
-  
-  
-  
+      - "8082:8082"
+    networks:
+      - spring-cloud-network
+
+  user-movie-rating-service:
+    container_name: user-movie-rating
+    image: myorg/user-movie-rating
+    ports:
+      - "8081:8081"
+    networks:
+      - spring-cloud-network
+
+  movie-catalog-service:
+    container_name: movie-catalog-service
+    image: myorg/movie-catalog
+    ports:
+      - "8083:8083"
+    networks:
+      - spring-cloud-network
+networks:
+    spring-cloud-network:
+        driver: bridge
