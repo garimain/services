@@ -1,0 +1,4 @@
+--insert into users(username, password, enabled) values ("rouser", "rouser", true);
+--insert into users(username, password, enabled) values ("rwuser", "rwuser", true);
+--insert into authorities(username, authority) values ("rouser", "ROLE_ROUSER");
+--insert into authorities(username, authority) values ("rwuser", "ROLE_RWUSER");
